@@ -1,3 +1,5 @@
+import { t } from "i18next";
+
 const Footer = () => {
   return (
     <section
@@ -52,7 +54,13 @@ const Footer = () => {
                                       Drexall © 2022
                                       <br />
                                       <span className="hidden sm:inline-block">
-                                        Todos los derechos reservados.
+                                        {t('footer_description')}
+                                      </span>
+                                      <br />
+                                      <span style={{
+                                        color: '#011033'
+                                      }}>
+                                        <a href='mailto:hello@drexall.net'>{t('contact')}</a>
                                       </span>
                                     </p>
                                   </div>
@@ -60,7 +68,7 @@ const Footer = () => {
                               </div>
                             </div>
                           </div>
-                          <div
+                          {/* <div
                             className="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-c8569ca"
                             data-id="c8569ca"
                             data-element_type="column"
@@ -111,7 +119,7 @@ const Footer = () => {
                                 </div>
                               </div>
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                       </section>
                     </div>

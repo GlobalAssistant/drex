@@ -1,7 +1,11 @@
-
+import { useTranslation } from "react-i18next";
+import i18n from '../../i18n/config';
 import Footer from "../footer/footer.component";
 
 const Introduction = () => {
+  
+  const { t } = useTranslation();
+  console.log('lang = ', i18n.language);
   return (
       <div>
       <section
@@ -131,18 +135,29 @@ const Introduction = () => {
                                 </div>
                               </div>
                               <div
-                                className="elementor-element elementor-element-3912899 elementor-widget__width-initial elementor-aspect-ratio-169 elementor-widget elementor-widget-video"
-                                data-id="3912899"
-                                data-element_type="widget"
-                                data-settings='{"video_type":"hosted","show_image_overlay":"yes","image_overlay":{"url":"image\/regales.jpg","id":194},"lightbox":"yes","aspect_ratio":"169"}'
-                                data-widget_type="video.default"
+                                // className="elementor-element elementor-element-3912899 elementor-widget__width-initial elementor-aspect-ratio-169 elementor-widget elementor-widget-video"
+                                // data-id="3912899"
+                                // data-element_type="widget"
+                                // data-settings={
+                                //   i18n.language=='es' ?
+                                //   '{"video_type":"hosted","show_image_overlay":"yes","image_overlay":{"url":"image\/regales_es.jpg","id":194},"lightbox":"yes","aspect_ratio":"169"}' :
+                                //   '{"video_type":"hosted","show_image_overlay":"yes","image_overlay":{"url":"image\/regales_en.jpg","id":194},"lightbox":"yes","aspect_ratio":"169"}'
+                                // }
+                                // data-widget_type="video.default"
                               >
-                                <div className="elementor-widget-container">
-                                  <div className="e-hosted-video elementor-wrapper elementor-open-lightbox">
-                                    <div
+                                <div>
+                                  <div style={{
+                                    marginTop: '5%',
+                                    marginBottom: '5%'
+                                  }}>
+                                    {/* <div
                                       className="elementor-custom-embed-image-overlay"
                                       data-elementor-open-lightbox="yes"
-                                      data-elementor-lightbox='{"type":"video","videoType":"hosted","url":"image\/drex-lp-v2.mp4","modalOptions":{"id":"elementor-lightbox-3912899","entranceAnimation":"","entranceAnimation_tablet":"","entranceAnimation_mobile":"","videoAspectRatio":"169"},"videoParams":{"controlsList":"nodownload"}}'
+                                      data-elementor-lightbox={
+                                        i18n.language == 'es' ?
+                                        '{"type":"video","videoType":"hosted","url":"image\/drex-lp-v2.mp4","modalOptions":{"id":"elementor-lightbox-3912899","entranceAnimation":"","entranceAnimation_tablet":"","entranceAnimation_mobile":"","videoAspectRatio":"169"},"videoParams":{"controlsList":"nodownload"}}' :
+                                        '{"type":"video","videoType":"hosted","url":"image\/drex lp en.mp4","modalOptions":{"id":"elementor-lightbox-3912899","entranceAnimation":"","entranceAnimation_tablet":"","entranceAnimation_mobile":"","videoAspectRatio":"169"},"videoParams":{"controlsList":"nodownload"}}'
+                                      }
                                     >
                                       <img
                                         width="1173"
@@ -164,10 +179,39 @@ const Introduction = () => {
                                           aria-hidden="true"
                                         ></i>
                                         <span className="elementor-screen-only">
-                                          Reproducir vídeo
+                                          {t('video')}
                                         </span>
                                       </div>
+                                    </div> */}
+                                    {/* <video controls autoplay loop muted playsInline >
+                                      <source src={
+                                        i18n.language == 'es' ? "image/drex-lp-v2.mp4" : "image/drex lp en.mp4"
+                                      } type="video/mp4"/>
+                                    </video> */}
+                                    {i18n.language == 'es' ? (
+                                    <video
+                                      controls
+                                      autoPlay={true}
+                                      loop                         
+                                      playsInline
+                                      poster="image/regales.jpg"
+                                    >
+                                      <source src="image/drex-lp-v2.mp4"></source>
+                                    </video>
+                                  ) : (
+                                    <div>
+                                      <video
+                                        controls
+                                        autoPlay={true}
+                                        loop
+                                        // muted
+                                        playsInline
+                                        poster="image/regales.jpg"
+                                      >
+                                        <source src="image/drex lp en.mp4"></source>
+                                      </video>
                                     </div>
+                                  )}
                                   </div>
                                 </div>
                               </div>
@@ -234,9 +278,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    Red descentralizada de suministro de energia
-                                    limpia con infraestructura de propiedad
-                                    distribuida.
+                                    {t('video_below_title')}
                                   </h2>
                                 </div>
                               </div>
@@ -250,149 +292,7 @@ const Introduction = () => {
                                   <div className="elementor-text-editor elementor-clearfix">
                                     <p>
                                       <span id="E1070" className="">
-                                        DREx
-                                      </span>
-                                      <span id="E1072" className="">
-                                        {" "}
-                                        es la{" "}
-                                      </span>
-                                      <span id="E1074" className="">
-                                        primera
-                                      </span>
-                                      <span id="E1076" className="">
-                                        red de prosumers{" "}
-                                      </span>
-                                      <span id="E1078" className="">
-                                        energeticos
-                                      </span>
-                                      <span id="E1080" className="">
-                                        ,{" "}
-                                      </span>
-                                      <span id="E1082" className="">
-                                        tecnicos
-                                      </span>
-                                      <span id="E1084" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1086" className="">
-                                        calificados
-                                      </span>
-                                      <span id="E1088" className="">
-                                        ,{" "}
-                                      </span>
-                                      <span id="E1090" className="">
-                                        consumidores
-                                      </span>
-                                      <span id="E1092" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1094" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1096" className="">
-                                        final y{" "}
-                                      </span>
-                                      <span id="E1098" className="">
-                                        partes
-                                      </span>
-                                      <span id="E1100" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1102" className="">
-                                        en
-                                      </span>
-                                      <span id="E1104" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1106" className="">
-                                        necesidad
-                                      </span>
-                                      <span id="E1108" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1110" className="">
-                                        compensacion
-                                      </span>
-                                      <span id="E1112" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1114" className="">
-                                        emisiones
-                                      </span>
-                                      <span id="E1116" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1118" className="">
-                                        carbono
-                                      </span>
-                                      <span id="E1120" className="">
-                                        , que opera bajo un{" "}
-                                      </span>
-                                      <span id="E1122" className="">
-                                        contrato
-                                      </span>
-                                      <span id="E1124" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1126" className="">
-                                        inteligente
-                                      </span>
-                                      <span id="E1128" className="">
-                                        {" "}
-                                        y{" "}
-                                      </span>
-                                      <span id="E1130" className="">
-                                        busca
-                                      </span>
-                                      <span id="E1132" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1134" className="">
-                                        acelerar
-                                      </span>
-                                      <span id="E1136" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1138" className="">
-                                        el
-                                      </span>
-                                      <span id="E1140" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1142" className="">
-                                        acceso
-                                      </span>
-                                      <span id="E1144" className="">
-                                        {" "}
-                                        a{" "}
-                                      </span>
-                                      <span id="E1146" className="">
-                                        energias
-                                      </span>
-                                      <span id="E1148" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1150" className="">
-                                        limpias
-                                      </span>
-                                      <span id="E1152" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1154" className="">
-                                        en
-                                      </span>
-                                      <span id="E1156" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1158" className="">
-                                        Latam
-                                      </span>
-                                      <span id="E1160" className="">
-                                        .
+                                        {t('video_below_description')}
                                       </span>
                                     </p>
                                   </div>
@@ -500,9 +400,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    ¿Eres una persona que le mueve la
-                                    sostenibilidad y busca realizar acciones
-                                    concretas para mitigar el cambio climatico?
+                                    {t('obtain_title')}
                                   </h2>
                                 </div>
                               </div>
@@ -516,135 +414,7 @@ const Introduction = () => {
                                   <div className="elementor-text-editor elementor-clearfix">
                                     <p>
                                       <span id="E1236" className="">
-                                        Conviertete
-                                      </span>
-                                      <span id="E1238" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1240" className="">
-                                        en
-                                      </span>
-                                      <span id="E1242" className="">
-                                        {" "}
-                                        un{" "}
-                                      </span>
-                                      <span id="E1244" className="">
-                                        DREx
-                                      </span>
-                                      <span id="E1246" className="">
-                                        holder{" "}
-                                      </span>
-                                      <span id="E1248" className="">
-                                        invirtiendo
-                                      </span>
-                                      <span id="E1250" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1252" className="">
-                                        en
-                                      </span>
-                                      <span id="E1254" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1256" className="">
-                                        iniciativas
-                                      </span>
-                                      <span id="E1258" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1260" className="">
-                                        sostenibles
-                                      </span>
-                                      <span id="E1262" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1264" className="">
-                                        generacion
-                                      </span>
-                                      <span id="E1266" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1268" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1270" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1272" className="">
-                                        limpia
-                                      </span>
-                                      <span id="E1274" className="">
-                                        , y{" "}
-                                      </span>
-                                      <span id="E1276" className="">
-                                        adquiere
-                                      </span>
-                                      <span id="E1278" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1280" className="">
-                                        una
-                                      </span>
-                                      <span id="E1282" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1284" className="">
-                                        rentabilidad
-                                      </span>
-                                      <span id="E1286" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1288" className="">
-                                        anual
-                                      </span>
-                                      <span id="E1290" className="">
-                                        de hasta del 10%{" "}
-                                      </span>
-                                      <span id="E1292" className="">
-                                        por
-                                      </span>
-                                      <span id="E1294" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1296" className="">
-                                        venta
-                                      </span>
-                                      <span id="E1298" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1300" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1302" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1304" className="">
-                                        durante
-                                      </span>
-                                      <span id="E1306" className="">
-                                        {" "}
-                                        la{" "}
-                                      </span>
-                                      <span id="E1308" className="">
-                                        vida
-                                      </span>
-                                      <span id="E1310" className="">
-                                        util del{" "}
-                                      </span>
-                                      <span id="E1312" className="">
-                                        proyecto
-                                      </span>
-                                      <span id="E1314" className="">
-                                        . (20 – 25{" "}
-                                      </span>
-                                      <span id="E1316" className="">
-                                        anos
-                                      </span>
-                                      <span id="E1318" className="">
-                                        ).
+                                        {t('obtain_description')}
                                       </span>
                                     </p>
                                   </div>
@@ -659,13 +429,13 @@ const Introduction = () => {
                                 <div className="elementor-widget-container">
                                   <div className="elementor-button-wrapper">
                                     <a
-                                      href="http://drexall.net/#"
+                                      href="/#home"
                                       className="elementor-button-link elementor-button elementor-size-sm"
                                       role="button"
                                     >
                                       <span className="elementor-button-content-wrapper">
                                         <span className="elementor-button-text">
-                                          Obten un DREx’s
+                                          {t('obtain_btn')}
                                         </span>
                                       </span>
                                     </a>
@@ -712,9 +482,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    ¿Eres una empresa (SME) interesada en
-                                    consumir energia limpia y te detiene la
-                                    falta de capital?
+                                    {t('register_title')}
                                   </h2>
                                 </div>
                               </div>
@@ -728,129 +496,7 @@ const Introduction = () => {
                                   <div className="elementor-text-editor elementor-clearfix">
                                     <p>
                                       <span id="E1406" className="">
-                                        Consigue
-                                      </span>
-                                      <span id="E1408" className="">
-                                        hasta un 30% de{" "}
-                                      </span>
-                                      <span id="E1410" className="">
-                                        ahorro
-                                      </span>
-                                      <span id="E1412" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1414" className="">
-                                        energetico
-                                      </span>
-                                      <span id="E1416" className="">
-                                        ,{" "}
-                                      </span>
-                                      <span id="E1418" className="">
-                                        integrando
-                                      </span>
-                                      <span id="E1420" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1422" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1424" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1426" className="">
-                                        limpia
-                                      </span>
-                                      <span id="E1428" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1430" className="">
-                                        en
-                                      </span>
-                                      <span id="E1432" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1434" className="">
-                                        tu
-                                      </span>
-                                      <span id="E1436" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1438" className="">
-                                        negocio
-                                      </span>
-                                      <span id="E1440" className="">
-                                        con cero capital, SI, con cero capital.{" "}
-                                      </span>
-                                      <span id="E1442" className="">
-                                        Firmaras
-                                      </span>
-                                      <span id="E1444" className="">
-                                        {" "}
-                                        u{" "}
-                                      </span>
-                                      <span id="E1446" className="">
-                                        contrato
-                                      </span>
-                                      <span id="E1448" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1450" className="">
-                                        inteligente
-                                      </span>
-                                      <span id="E1452" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1454" className="">
-                                        acuerdo
-                                      </span>
-                                      <span id="E1456" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1458" className="">
-                                        compra
-                                      </span>
-                                      <span id="E1460" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1462" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1464" className="">
-                                        , de{" "}
-                                      </span>
-                                      <span id="E1466" className="">
-                                        propiedad
-                                      </span>
-                                      <span id="E1468" className="">
-                                        {" "}
-                                        y{" "}
-                                      </span>
-                                      <span id="E1470" className="">
-                                        financiada
-                                      </span>
-                                      <span id="E1472" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1474" className="">
-                                        por
-                                      </span>
-                                      <span id="E1476" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1478" className="">
-                                        una
-                                      </span>
-                                      <span id="E1480" className="">
-                                        red de{" "}
-                                      </span>
-                                      <span id="E1482" className="">
-                                        DREx’s
-                                      </span>
-                                      <span id="E1484" className="">
-                                        holders.
+                                        {t('register_description')}
                                       </span>
                                     </p>
                                   </div>
@@ -865,13 +511,13 @@ const Introduction = () => {
                                 <div className="elementor-widget-container">
                                   <div className="elementor-button-wrapper">
                                     <a
-                                      href="http://drexall.net/#"
+                                      href="/#home"
                                       className="elementor-button-link elementor-button elementor-size-sm"
                                       role="button"
                                     >
                                       <span className="elementor-button-content-wrapper">
                                         <span className="elementor-button-text">
-                                          Registra tu proyecto
+                                          {t('register_btn')}
                                         </span>
                                       </span>
                                     </a>
@@ -932,9 +578,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    ¿Eres una persona con experiencia
-                                    demostrable en montaje de plantas
-                                    solares/eolicas?
+                                    {t('integrate_title')}
                                   </h2>
                                 </div>
                               </div>
@@ -969,11 +613,7 @@ const Introduction = () => {
                                 <div className="elementor-widget-container">
                                   <div className="elementor-text-editor elementor-clearfix">
                                     <p>
-                                      Se parte de la primera red de tecnicos
-                                      calificados en integracion de proyectos de
-                                      energias limpias, adquiere independencia
-                                      economica y una remuneracion adecuada
-                                      segun tu nivel de expertise.
+                                      {t('integrate_description')}
                                     </p>
                                   </div>
                                 </div>
@@ -987,13 +627,13 @@ const Introduction = () => {
                                 <div className="elementor-widget-container">
                                   <div className="elementor-button-wrapper">
                                     <a
-                                      href="http://drexall.net/#"
+                                      href="/#home"
                                       className="elementor-button-link elementor-button elementor-size-sm"
                                       role="button"
                                     >
                                       <span className="elementor-button-content-wrapper">
                                         <span className="elementor-button-text">
-                                          Conviertete en un integrador
+                                          {t('integrate_btn')}
                                         </span>
                                       </span>
                                     </a>
@@ -1041,8 +681,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    ¿Eres una empresa y necesitas compensar tus
-                                    emisiones de carbono en el mercado regulado?
+                                    {t('offset_title')}
                                   </h2>
                                 </div>
                               </div>
@@ -1078,230 +717,7 @@ const Introduction = () => {
                                   <div className="elementor-text-editor elementor-clearfix">
                                     <p>
                                       <span id="E1726" className="">
-                                        Nuestros
-                                      </span>
-                                      <span id="E1728" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1730" className="">
-                                        contratos
-                                      </span>
-                                      <span id="E1732" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1734" className="">
-                                        inteligentes
-                                      </span>
-                                      <span id="E1736" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1738" className="">
-                                        vivos
-                                      </span>
-                                      <span id="E1740" className="">
-                                        ,{" "}
-                                      </span>
-                                      <span id="E1742" className="">
-                                        registran
-                                      </span>
-                                      <span id="E1744" className="">
-                                        de forma{" "}
-                                      </span>
-                                      <span id="E1746" className="">
-                                        automatica
-                                      </span>
-                                      <span id="E1748" className="">
-                                        {" "}
-                                        la{" "}
-                                      </span>
-                                      <span id="E1750" className="">
-                                        generacion
-                                      </span>
-                                      <span id="E1752" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1754" className="">
-                                        energia
-                                      </span>
-                                      <span id="E1756" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1758" className="">
-                                        limpia
-                                      </span>
-                                      <span id="E1760" className="">
-                                        {" "}
-                                        y la{" "}
-                                      </span>
-                                      <span id="E1762" className="">
-                                        convierten
-                                      </span>
-                                      <span id="E1764" className="">
-                                        {" "}
-                                        a{" "}
-                                      </span>
-                                      <span id="E1766" className="">
-                                        su
-                                      </span>
-                                      <span id="E1768" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1770" className="">
-                                        equivalente
-                                      </span>
-                                      <span id="E1772" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1774" className="">
-                                        emisiones
-                                      </span>
-                                      <span id="E1776" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1778" className="">
-                                        evitadas
-                                      </span>
-                                      <span id="E1780" className="">
-                                        . Este{" "}
-                                      </span>
-                                      <span id="E1782" className="">
-                                        proceso
-                                      </span>
-                                      <span id="E1784" className="">
-                                        de M&amp;V{" "}
-                                      </span>
-                                      <span id="E1786" className="">
-                                        en
-                                      </span>
-                                      <span id="E1788" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1790" className="">
-                                        linea
-                                      </span>
-                                      <span id="E1792" className="">
-                                        con la ISO 50001 (
-                                      </span>
-                                      <span id="E1794" className="">
-                                        medicion
-                                      </span>
-                                      <span id="E1796" className="">
-                                        {" "}
-                                        y{" "}
-                                      </span>
-                                      <span id="E1798" className="">
-                                        verificacion
-                                      </span>
-                                      <span id="E1800" className="">
-                                        ){" "}
-                                      </span>
-                                      <span id="E1802" className="">
-                                        pasa
-                                      </span>
-                                      <span id="E1804" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1806" className="">
-                                        por
-                                      </span>
-                                      <span id="E1808" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1810" className="">
-                                        por
-                                      </span>
-                                      <span id="E1812" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1814" className="">
-                                        toda
-                                      </span>
-                                      <span id="E1816" className="">
-                                        la red de{" "}
-                                      </span>
-                                      <span id="E1818" className="">
-                                        DREx’s
-                                      </span>
-                                      <span id="E1820" className="">
-                                        holders{" "}
-                                      </span>
-                                      <span id="E1822" className="">
-                                        certificando
-                                      </span>
-                                      <span id="E1824" className="">
-                                        {" "}
-                                        la{" "}
-                                      </span>
-                                      <span id="E1826" className="">
-                                        reduccion
-                                      </span>
-                                      <span id="E1828" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1830" className="">
-                                        emisiones
-                                      </span>
-                                      <span id="E1832" className="">
-                                        , y{" "}
-                                      </span>
-                                      <span id="E1834" className="">
-                                        poniendo
-                                      </span>
-                                      <span id="E1836" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1838" className="">
-                                        en
-                                      </span>
-                                      <span id="E1840" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1842" className="">
-                                        disposicion
-                                      </span>
-                                      <span id="E1844" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1846" className="">
-                                        los
-                                      </span>
-                                      <span id="E1848" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1850" className="">
-                                        creditos
-                                      </span>
-                                      <span id="E1852" className="">
-                                        {" "}
-                                        de{" "}
-                                      </span>
-                                      <span id="E1854" className="">
-                                        carbono
-                                      </span>
-                                      <span id="E1856" className="">
-                                        {" "}
-                                      </span>
-                                      <span id="E1858" className="">
-                                        equivalentes
-                                      </span>
-                                      <span id="E1860" className="">
-                                        {" "}
-                                        al{" "}
-                                      </span>
-                                      <span id="E1862" className="">
-                                        precio
-                                      </span>
-                                      <span id="E1864" className="">
-                                        del mercado{" "}
-                                      </span>
-                                      <span id="E1866" className="">
-                                        regulado
-                                      </span>
-                                      <span id="E1868" className="">
-                                        .
+                                        {t('offset_description')}
                                       </span>
                                     </p>
                                   </div>
@@ -1316,13 +732,13 @@ const Introduction = () => {
                                 <div className="elementor-widget-container">
                                   <div className="elementor-button-wrapper">
                                     <a
-                                      href="http://drexall.net/#"
+                                      href="/#home"
                                       className="elementor-button-link elementor-button elementor-size-sm"
                                       role="button"
                                     >
                                       <span className="elementor-button-content-wrapper">
                                         <span className="elementor-button-text">
-                                          Compensa tus emisiones
+                                          {t('offset_btn')}
                                         </span>
                                       </span>
                                     </a>
@@ -1354,11 +770,11 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    ¿Como funciona?
+                                    FAQs
                                   </h2>
                                 </div>
                               </div>
-                              <section
+                              {/* <section
                                 className="elementor-section elementor-inner-section elementor-element elementor-element-a82db92 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                                 data-id="a82db92"
                                 data-element_type="section"
@@ -1662,7 +1078,7 @@ const Introduction = () => {
                                     </div>
                                   </div>
                                 </div>
-                              </section>
+                              </section> */}
                             </div>
                           </div>
                         </div>
@@ -1688,7 +1104,7 @@ const Introduction = () => {
                               >
                                 <div className="elementor-widget-container">
                                   <h2 className="elementor-heading-title elementor-size-default">
-                                    Proyectos
+                                    {t('project_btn')}
                                   </h2>
                                 </div>
                               </div>
@@ -1707,9 +1123,9 @@ const Introduction = () => {
                                           transform: `translate3d(${0}px, ${0}px, ${0}px)`
                                       }}
                                     >
-                                      <a
+                                      {/* <a
                                         className="elementor-post__thumbnail__link"
-                                        href="http://drexall.net/project/drex/"
+                                        href="/#home"
                                       >
                                         <div className="elementor-portfolio-item__img elementor-post__thumbnail">
                                           <img
@@ -1729,7 +1145,7 @@ const Introduction = () => {
                                             DREx
                                           </h3>
                                         </div>
-                                      </a>
+                                      </a> */}
                                     </article>
                                     <div className="elementor-portfolio-item elementor-portfolio-ghost-item"></div>
                                     <div className="elementor-portfolio-item elementor-portfolio-ghost-item"></div>

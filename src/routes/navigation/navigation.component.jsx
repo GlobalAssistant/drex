@@ -1,9 +1,27 @@
-import { Fragment } from "react";
+import { Fragment, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import navLogo from '../../assets/output-onlinepngtools-300x122.png';
+import navLogo from '../../assets/logo.png';
+import { useTranslation } from "react-i18next";
+import i18n from '../../i18n/config';
+
+import DropDown from "../../component/dropdown/dropdown.component";
 
 const Navigation = () => {
+  const { t } = useTranslation();
+  const [language, setLanguage] = useState('en');
+ 
+  const handleOnclick=(e)=>{
+    e.preventDefault();
+    i18n.changeLanguage(e.target.innerText);
+
+    if (e.target.innerText === 'en') {
+      setLanguage('es');
+    } else {
+      setLanguage('en');
+    }
+  }
+
   return (
     <Fragment>
       <section
@@ -40,10 +58,10 @@ const Navigation = () => {
                           data-settings='{"sticky":"top","background_background":"classNameic","sticky_on":["desktop","tablet","mobile"],"sticky_offset":0,"sticky_effects_offset":0}'
                           style={{
                             position: 'fixed',
-                            width: '1349px',                            
+                            width: '90%',
                             marginTop: '0px',
                             marginBottom: '0px',
-                            top: '0px',                            
+                            top: '0px',
                           }}
                         >
                           <div className="elementor-container elementor-column-gap-default">
@@ -61,7 +79,7 @@ const Navigation = () => {
                                 >
                                   <div className="elementor-widget-container">
                                     <div className="elementor-image">
-                                      <a href="http://drexall.net/#home">
+                                      <a href="/#home">
                                         <img
                                           width="300"
                                           height="122"
@@ -108,7 +126,7 @@ const Navigation = () => {
                                             aria-current="page"
                                             className="elementor-item elementor-item-anchor"
                                           >
-                                            INICIATIVA
+                                            {t('intro')}
                                           </a>
                                         </li>
                                         <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
@@ -117,7 +135,7 @@ const Navigation = () => {
                                             aria-current="page"
                                             className="elementor-item elementor-item-anchor"
                                           >
-                                            FAQs
+                                            {t('faq')}
                                           </a>
                                         </li>
                                         <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
@@ -126,87 +144,12 @@ const Navigation = () => {
                                             aria-current="page"
                                             className="elementor-item elementor-item-anchor"
                                           >
-                                            PROYECTOS
+                                            {t('projects')}
                                           </a>
                                         </li>
                                       </ul>
                                     </nav>
-                                    <div
-                                      className="elementor-menu-toggle"
-                                      role="button"
-                                      tabIndex="0"
-                                      aria-label="Menu Toggle"
-                                      aria-expanded="false"
-                                    >
-                                      <i
-                                        className="eicon-menu-bar"
-                                        aria-hidden="true"
-                                      ></i>
-                                      <span className="elementor-screen-only">
-                                        Menu
-                                      </span>
-                                    </div>
-                                    <nav
-                                      className="elementor-nav-menu--dropdown elementor-nav-menu__container"
-                                      role="navigation"
-                                      aria-hidden="true"
-                                      style={{
-                                        top: '44px',
-                                        width: '1349px',
-                                        left: '0px'
-                                      }}
-                                    >
-                                      <ul
-                                        id="menu-2-ea8028c"
-                                        className="elementor-nav-menu"
-                                        data-smartmenus-id="16545229784537007"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                  </div>
-                                </div>
-                                <div
-                                  className="elementor-element elementor-element-7f72030 elementor-hidden-desktop elementor-view-default elementor-widget elementor-widget-icon"
-                                  data-id="7f72030"
-                                  data-element_type="widget"
-                                  data-widget_type="icon.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-icon-wrapper">
-                                      <div className="elementor-icon">
-                                        <i
-                                          aria-hidden="true"
-                                          className="fab fa-facebook-square"
-                                        ></i>
-                                      </div>
-                                    </div>
+                                    <DropDown />
                                   </div>
                                 </div>
                               </div>
@@ -224,273 +167,42 @@ const Navigation = () => {
                                   data-widget_type="icon.default"
                                 >
                                   <div className="elementor-widget-container">
-                                    <div className="elementor-icon-wrapper">
+                                    <div className="elementor-icon-wrapper" style={{display: 'inline-flex'}}>
                                       <div className="elementor-icon">
                                         <i
                                           aria-hidden="true"
                                           className="fab fa-instagram"
                                         ></i>
                                       </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              className="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-ebb8dc8"
-                              data-id="ebb8dc8"
-                              data-element_type="column"
-                            >
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div
-                                  className="elementor-element elementor-element-dd46848 elementor-hidden-tablet elementor-hidden-phone elementor-view-default elementor-widget elementor-widget-icon"
-                                  data-id="dd46848"
-                                  data-element_type="widget"
-                                  data-widget_type="icon.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-icon-wrapper">
                                       <div className="elementor-icon">
                                         <i
                                           aria-hidden="true"
-                                          className="fab fa-facebook-square"
+                                          className="fab fa-twitter-square"
+                                          // style={{marginLeft: '90%'}}
+
                                         ></i>
                                       </div>
+                                      <div className="elementor-icon">
+                                        <span style={{
+                                        cursor: 'pointer',
+                                        // marginLeft: '45%'
+                                      }} onClick={handleOnclick}>{language}</span>
+                                      </div>
+                                      
                                     </div>
-                                  </div>
-                                </div>
-                                <div
-                                  className="elementor-element elementor-element-7a26f0a0 elementor-nav-menu--indicator-angle elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-hidden-desktop elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu"
-                                  data-id="7a26f0a0"
-                                  data-element_type="widget"
-                                  data-settings='{"full_width":"stretch","layout":"horizontal","toggle":"burger"}'
-                                  data-widget_type="nav-menu.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <nav
-                                      role="navigation"
-                                      className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none"
-                                    >
-                                      <ul
-                                        id="menu-1-7a26f0a0"
-                                        className="elementor-nav-menu"
-                                        data-smartmenus-id="1654522978489349"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                    <div
-                                      className="elementor-menu-toggle"
-                                      role="button"
-                                      tabIndex="0"
-                                      aria-label="Menu Toggle"
-                                      aria-expanded="false"
-                                    >
-                                      <i
-                                        className="eicon-menu-bar"
-                                        aria-hidden="true"
-                                      ></i>
-                                      <span className="elementor-screen-only">
-                                        Menu
-                                      </span>
-                                    </div>
-                                    <nav
-                                      className="elementor-nav-menu--dropdown elementor-nav-menu__container"
-                                      role="navigation"
-                                      aria-hidden="true"
-                                      style={{
-                                          top: '0px',
-                                          width: '1349px',
-                                          left: '0px',
-                                      }}
-                                    >
-                                      <ul
-                                        id="menu-2-7a26f0a0"
-                                        className="elementor-nav-menu"
-                                        data-smartmenus-id="16545229784897742"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
                                   </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </section>
-                        <section
-                          className="elementor-section elementor-top-section elementor-element elementor-element-346f3d8b elementor-section-boxed elementor-section-height-default elementor-section-height-default elementor-sticky elementor-sticky__spacer"
-                          data-id="346f3d8b"
-                          data-element_type="section"
-                          data-settings='{"sticky":"top","background_background":"classNameic","sticky_on":["desktop","tablet","mobile"],"sticky_offset":0,"sticky_effects_offset":0}'
-                          style={{
-                            visibility: 'hidden',
-                            transition: 'none 0s ease 0s',
-                            animation: '0s ease 0s 1 normal none running none'
-                          }}
-                        >
-                          <div className="elementor-container elementor-column-gap-default">
-                            <div
-                              className="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-3795ede2"
-                              data-id="3795ede2"
+                            {/* <div
+                              className="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-15f156e9"
+                              data-id="15f156e9"
                               data-element_type="column"
                             >
                               <div className="elementor-widget-wrap elementor-element-populated">
                                 <div
-                                  className="elementor-element elementor-element-ea8028c elementor-nav-menu--indicator-angle elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-hidden-tablet elementor-hidden-phone elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu"
-                                  data-id="ea8028c"
-                                  data-element_type="widget"
-                                  data-settings='{"full_width":"stretch","layout":"horizontal","toggle":"burger"}'
-                                  data-widget_type="nav-menu.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <nav
-                                      role="navigation"
-                                      className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none"
-                                    >
-                                      <ul
-                                        id="menu-1-ea8028c"
-                                        className="elementor-nav-menu"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                    <div
-                                      className="elementor-menu-toggle"
-                                      role="button"
-                                      tabIndex="0"
-                                      aria-label="Menu Toggle"
-                                      aria-expanded="false"
-                                    >
-                                      <i
-                                        className="eicon-menu-bar"
-                                        aria-hidden="true"
-                                      ></i>
-                                      <span className="elementor-screen-only">
-                                        Menu
-                                      </span>
-                                    </div>
-                                    <nav
-                                      className="elementor-nav-menu--dropdown elementor-nav-menu__container"
-                                      role="navigation"
-                                      aria-hidden="true"
-                                    >
-                                      <ul
-                                        id="menu-2-ea8028c"
-                                        className="elementor-nav-menu"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                  </div>
-                                </div>
-                                <div
-                                  className="elementor-element elementor-element-7f72030 elementor-hidden-desktop elementor-view-default elementor-widget elementor-widget-icon"
-                                  data-id="7f72030"
+                                  className="elementor-element elementor-element-2d037cb elementor-hidden-tablet elementor-hidden-phone elementor-view-default elementor-widget elementor-widget-icon"
+                                  data-id="2d037cb"
                                   data-element_type="widget"
                                   data-widget_type="icon.default"
                                 >
@@ -499,7 +211,7 @@ const Navigation = () => {
                                       <div className="elementor-icon">
                                         <i
                                           aria-hidden="true"
-                                          className="fab fa-facebook-square"
+                                          className="fab fa-twitter-square"
                                         ></i>
                                       </div>
                                     </div>
@@ -514,149 +226,19 @@ const Navigation = () => {
                             >
                               <div className="elementor-widget-wrap elementor-element-populated">
                                 <div
-                                  className="elementor-element elementor-element-2d037cb elementor-view-default elementor-widget elementor-widget-icon"
+                                  className="elementor-element elementor-element-2d037cb elementor-hidden-tablet elementor-hidden-phone elementor-view-default elementor-widget elementor-widget-icon"
                                   data-id="2d037cb"
                                   data-element_type="widget"
                                   data-widget_type="icon.default"
                                 >
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-icon-wrapper">
-                                      <div className="elementor-icon">
-                                        <i
-                                          aria-hidden="true"
-                                          className="fab fa-instagram"
-                                        ></i>
-                                      </div>
-                                    </div>
+                                  <div className="elementor-widget-container" style={{
+                                    cursor: 'pointer',
+                                  }}>
+                                    <span onClick={handleOnclick}>{language}</span>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                            <div
-                              className="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-ebb8dc8"
-                              data-id="ebb8dc8"
-                              data-element_type="column"
-                            >
-                              <div className="elementor-widget-wrap elementor-element-populated">
-                                <div
-                                  className="elementor-element elementor-element-dd46848 elementor-hidden-tablet elementor-hidden-phone elementor-view-default elementor-widget elementor-widget-icon"
-                                  data-id="dd46848"
-                                  data-element_type="widget"
-                                  data-widget_type="icon.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <div className="elementor-icon-wrapper">
-                                      <div className="elementor-icon">
-                                        <i
-                                          aria-hidden="true"
-                                          className="fab fa-facebook-square"
-                                        ></i>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div
-                                  className="elementor-element elementor-element-7a26f0a0 elementor-nav-menu--indicator-angle elementor-nav-menu--stretch elementor-nav-menu__align-right elementor-hidden-desktop elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu"
-                                  data-id="7a26f0a0"
-                                  data-element_type="widget"
-                                  data-settings='{"full_width":"stretch","layout":"horizontal","toggle":"burger"}'
-                                  data-widget_type="nav-menu.default"
-                                >
-                                  <div className="elementor-widget-container">
-                                    <nav
-                                      role="navigation"
-                                      className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none"
-                                    >
-                                      <ul
-                                        id="menu-1-7a26f0a0"
-                                        className="elementor-nav-menu"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                    <div
-                                      className="elementor-menu-toggle"
-                                      role="button"
-                                      tabIndex="0"
-                                      aria-label="Menu Toggle"
-                                      aria-expanded="false"
-                                    >
-                                      <i
-                                        className="eicon-menu-bar"
-                                        aria-hidden="true"
-                                      ></i>
-                                      <span className="elementor-screen-only">
-                                        Menu
-                                      </span>
-                                    </div>
-                                    <nav
-                                      className="elementor-nav-menu--dropdown elementor-nav-menu__container"
-                                      role="navigation"
-                                      aria-hidden="true"
-                                    >
-                                      <ul
-                                        id="menu-2-7a26f0a0"
-                                        className="elementor-nav-menu"
-                                      >
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                                          <a
-                                            href="http://drexall.net/#us"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            INICIATIVA
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-75">
-                                          <a
-                                            href="http://drexall.net/#faq"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            FAQs
-                                          </a>
-                                        </li>
-                                        <li className="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-76">
-                                          <a
-                                            href="http://drexall.net/#proyects"
-                                            aria-current="page"
-                                            className="elementor-item elementor-item-anchor"
-                                          >
-                                            PROYECTOS
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </nav>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            </div> */}
                           </div>
                         </section>
                       </div>
