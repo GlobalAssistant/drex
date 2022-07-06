@@ -558,7 +558,7 @@ const Introduction = () => {
                           </div>
                         </div>
                       </section>
-                      <section
+                      {/* <section
                         className="elementor-section elementor-top-section elementor-element elementor-element-f3859a7 elementor-section-height-min-height elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-items-middle"
                         data-id="f3859a7"
                         data-element_type="section"
@@ -748,7 +748,7 @@ const Introduction = () => {
                             </div>
                           </div>
                         </div>
-                      </section>
+                      </section> */}
                       <section
                         className="elementor-section elementor-top-section elementor-element elementor-element-027e4de elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                         data-id="027e4de"
