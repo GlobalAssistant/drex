@@ -169,18 +169,22 @@ const Navigation = () => {
                                   <div className="elementor-widget-container">
                                     <div className="elementor-icon-wrapper" style={{display: 'inline-flex'}}>
                                       <div className="elementor-icon">
-                                        <i
-                                          aria-hidden="true"
-                                          className="fab fa-instagram"
-                                        ></i>
+                                        <a href="https://instagram.com">
+                                          <i
+                                            aria-hidden="true"
+                                            className="fab fa-instagram"
+                                          ></i>
+                                        </a>
                                       </div>
                                       <div className="elementor-icon">
-                                        <i
-                                          aria-hidden="true"
-                                          className="fab fa-twitter-square"
-                                          // style={{marginLeft: '90%'}}
+                                        <a href="https://twitter.com/DrexNetwork">
+                                          <i
+                                            aria-hidden="true"
+                                            className="fab fa-twitter-square"
+                                            // style={{marginLeft: '90%'}}
 
-                                        ></i>
+                                          ></i>
+                                        </a>
                                       </div>
                                       <div className="elementor-icon">
                                         <span style={{
