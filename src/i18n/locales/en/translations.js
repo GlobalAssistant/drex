@@ -9,7 +9,7 @@ export const TRANSLATIONS_EN = {
     obtain_description: 'Become a DREx prosumer by investing in clean energy projects and get an annual return of top up to 10% by selling energy over the life expectancy of the project.(20-25 years)',
     obtain_btn: "Get a DREx's",
     register_title: 'Are you a company (SME) interested in consuming clean energy and the lack of capital stop you?',
-    register_description: "Get 20% on energy savings, integrating clean energy in your business with ZERO capital, YES, with zero capital. You will suscribe a power purchase agreement with our prosumers over the useful life expectancy of the clean power plant (20 - 25 years).",
+    register_description: "Get a DREx token and demonstrate your early participation in the race to achieve net zero emissions by 2050.",
     register_btn: 'Register your project',
     integrate_title: 'Are you a company/person with demonstrable experience in the assembly of solar/wind plants?',
     integrate_description:'Be part of the first network of qualified technicians in the integration of clean energy projects, acquire economic independence and adequate remuneration according to your level of expertise.',

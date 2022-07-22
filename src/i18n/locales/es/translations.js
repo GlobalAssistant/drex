@@ -6,7 +6,7 @@ export const TRANSLATIONS_ES = {
     video_below_title: 'Red descentralizada de suministro de energia  limpia con infraestructura de propiedad distribuida.',
     video_below_description: 'DREx  es la primera red de prosumers energeticos, tecnicos calificados, consumidores de energia final y partes en necesidad de compensacion de emisiones de carbono, que opera bajo un contrato inteligente y busca acelerar el acceso a energias limpias en Latam.',
     obtain_title: '¿Eres una persona que le mueve la sostenibilidad y busca realizar acciones concretas para mitigar el cambio climatico?',
-    obtain_description: 'Conviertete en un prosumidor DREx invirtiendo en proyectos de energia renovable, y adquiere una rentabilidad anual de hasta del 10% por venta de energia durante la vida util del proyecto. (20 – 25 años).',
+    obtain_description: 'Obten un token DREx y demuestra tu participacion temprana en la carrera por lograr cero emisiones al 2050.',
     obtain_btn: 'Obten un DREx’s ',
     register_title: '¿Eres una empresa (SME) interesada en consumir energia limpia y te detiene la falta de capital?',
     register_description: 'Consigue hasta un 20% de ahorro energetico,  integrando energia renovanle en tu negocio con cero capital, SI, con cero capital. Firmaras un acuerdo de compra de energia con los prosumidores DREx durante la vida util de la planta de energia.',
